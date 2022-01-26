@@ -34,7 +34,6 @@
 		top:20px;
 		.CT {
 			background: linear-gradient(90deg, rgba(153,122,190,0.8) 0%, rgba(147,72,173,1) 100%);
-
 			border-radius: 10px;
 		}
 		.T {
@@ -44,7 +43,8 @@
 		.score{
 			background: none;
 			position: absolute;
-			top:2px;
+			top:50%;
+			transform: translateY(-50%);
 		}
 	}
 	.matchbar_left{
@@ -61,6 +61,7 @@
 		border: 1px solid #d7d7d7;
 		border-radius: 10px;
 		padding: 10px 40px;
+		overflow: hidden;
         &.no-bo {
             height: auto;
         }
@@ -198,7 +199,7 @@
 		width: 77px;
 		align-items: center;
 		justify-content: center;
-		font-size: 50px;
+		font-size: 30px;
 		font-family: "Gill Sans", sans-serif;
 		font-weight: 500 !important;
 	}
@@ -219,26 +220,29 @@
 	position: fixed;
 	display: none;
 	opacity: 1;
-	width: 503px;
-	height: 50px;
-	top: 70px;
+	width: 360px;
+	padding: 15px 0;
+	margin: 5px 0 0 0;
+	text-align: center;
+	color: #fff;
+	top: 80px;
 	align-items: center;
-	color: black;
 	justify-content: center;
 	background-color: white;
 	font-size: 20px;
 	font-family: Montserrat;
     font-weight: 600;
+	line-height: 20px !important;
     &.show {
         display: flex;
         animation: ShowWinCycle 5s linear 1;
         animation-fill-mode: forwards;
     }
     &.right {
-        left: calc(50% + 71px);
+        left: calc(50% + 90px);
     }
     &.left {
-        right: calc(50% + 71px);
+        right: calc(50% + 90px);
     }
 }
 
@@ -246,35 +250,45 @@
 	position: fixed;
 	display: flex;
 	opacity: 1;
-	width: 503px;
+	width: 360px;
 	height: 49px;
-	top: 70px;
+	top: 85px;
 	align-items: center;
 	color: white;
     justify-content: center;
+	border-radius: 10px;
 	.defuse_plant_bar {
-		height: 49px;
+		height: 53px;
 		background-color: #3c3c3c;
 		position: absolute;
 		width: 0%;
+		border-radius: 10px;
 	}
 	.defuse_plant_caption {
 		z-index: 1;
 		display: flex;
 		text-transform: uppercase;
-		align-items: flex-end;
+		flex-direction: row;
 		svg {
 			margin-right: 13px;
+			fill: #fff;
+		}
+		.CT,.T{
+			display: flex;
+			justify-content: center;
+			p{
+				margin:0;
+			}
 		}
     }
     &.right {
-        left: calc(50% + 71px);
+        left: calc(50% + 90px);
         .defuse_plant_bar {
             left: 0;
         }
     }
     &.left {
-        right: calc(50% + 71px);
+        right: calc(50% + 50px);
         .defuse_plant_bar {
             right: 0;
         }
@@ -282,6 +296,35 @@
     &.hide {
         opacity: 0;
     }
+}
+.left{
+	.defuse_plant_caption{
+		.defusing-block,.planting-block{
+			padding: 15px 2px 15px 0;
+			border-radius: 10px 0 0 10px !important;
+		}
+	}
+}
+.right{
+	.defuse_plant_caption{
+		.defusing-block,.planting-block{
+			padding: 15px 0 15px 2px;
+			border-radius: 0 10px 10px 0 !important;
+		}
+	}
+}
+.defusing-block,.planting-block{
+	display: flex;
+	justify-content: center;
+	width: 360px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+.defusing-block{
+	background: linear-gradient(90deg, rgba(153,122,190,0.8) 0%, rgba(147,72,173,1) 100%) !important;
+}
+.planting-block{
+	background: linear-gradient(90deg, rgba(206,206,30,0.8) 0%, rgba(254,85,16,0.8) 100%) !important;
 }
 #encapsulator {
 	overflow: hidden;

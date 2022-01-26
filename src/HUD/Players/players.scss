@@ -25,90 +25,8 @@
     &.hide {
         opacity: 0;
     }
-    &.left {
-        left: 10px;
-        .player {
-            .row {
-                flex-direction: row;
-                .grenades {
-                    padding-right: 5px;
-                }
-
-                .armor_and_utility {
-                    justify-content: flex-start;
-                }
-                .money {
-                    margin-right: auto;
-                }
-                .username .roundkills-container {
-                    right: 115px;
-                }
-                .secondary_weapon {
-                    padding-right: 10px;
-                }
-
-            }
-
-        }
-    }
-    &.right {
-        right: 10px;
-        .player {
-            flex-direction: row-reverse;
-
-            .player_data {
-                flex-direction: column;
-                .player_data_inf{
-                    flex-direction: row-reverse;
-                    .player_data_first_block,.player_data_second_block{
-                        margin:0 0 0 5px;
-                    }
-                    .player_data_second_block{
-                        transform: scale(-1, 1);
-                    }
-                }
-                .player_data_stats{
-                    display: flex;
-                    flex-direction: row-reverse;
-                    background: linear-gradient(90deg, rgba(176,175,127,0.5) 0%, rgba(126,90,58,0.5) 100%);
-                }
-                .hp_bar {
-                    height: 20px;
-                    align-self: flex-end;
-                }
-                .row {
-                    flex-direction: row-reverse;
-                    .grenades {
-                        padding-left: 5px;
-                    }
-                    .username {
-                        flex-direction: row-reverse;
-                        .roundkills-container {
-                            left: 115px;
-                        }
-                    }
-                    .secondary_weapon {
-                        padding-left: 10px;
-                    }
-                    .armor_and_utility {
-                        justify-content: flex-end;
-                    }
-                    .money {
-                        margin-left: auto;
-                        justify-content: flex-end;
-                    }
-                    .weapon {
-                        transform: scaleX(-1);
-                    }
-                }
-                .avatar {
-                    justify-content: flex-start;
-                }
-            }
-        }
-    }
     .player {
-        width: 645px;
+        width: auto;
         height: 100%;
         display: flex;
         flex-direction: row;
@@ -117,11 +35,27 @@
             border-radius: 0 0 10px 10px;
             overflow: hidden;
             position: relative;
-
+            .player_data_inf{
+                .player_data_first_block{
+                    position: relative;
+                    .username{
+                        text-align: center;
+                    }
+                    span{
+                        font-size: 14px;
+                        background: rgba(0, 0, 0, 0.3);
+                        color:#fff;
+                        padding: 2px 6px 1px 6px;
+                        border-radius: 50%;
+                        max-height: 17px;
+                        margin:0 3px;
+                    }
+                }
+            }
             .player_data_stats{
                 position: relative;
                 .currentHealthRed{
-                    width: 0%;
+                    width: 100%;
                     background: #B0240D;
                     height: 20px;
                     position: absolute;
@@ -134,12 +68,14 @@
                     z-index: 5;
                     overflow: visible;
                     height: 20px;
+                    width: calc(100% + 2px);
                     .health{
                         position: relative;
                         z-index: 2;
-                        width: 101%;
+                        width: calc(100% + 4px);
                         border-radius: 0 10px 10px 0;
                         height: 20px;
+                        margin: 0 0 0 -4px;
                     }
                 }
                 .healthInfo{
@@ -218,7 +154,7 @@
             }
         }
         .player_data {
-            width: 415px;
+            width: 330px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -354,8 +290,108 @@
             }
         }
     }
-}
+    &.left {
+        left: 10px;
+        .player {
+            .row {
+                flex-direction: row;
+                .grenades {
+                    padding-right: 5px;
+                }
 
+                .armor_and_utility {
+                    justify-content: flex-start;
+                }
+                .money {
+                    margin-right: auto;
+                }
+                .username .roundkills-container {
+                    right: 115px;
+                }
+                .secondary_weapon {
+                    padding-right: 10px;
+                }
+
+            }
+
+        }
+    }
+    &.right {
+        right: 10px;
+        .player {
+            flex-direction: row-reverse;
+
+            .player_data {
+                flex-direction: column;
+                .player_data_inf{
+                    flex-direction: row-reverse;
+                    .player_data_first_block,.player_data_second_block{
+                        margin:0 0 0 5px;
+                    }
+                    .player_data_first_block{
+                        span{
+                            right: 3px;
+                            left: unset;
+                        }
+                    }
+                    .player_data_second_block{
+                        transform: scale(-1, 1);
+                    }
+                }
+                .player_data_stats{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    background: linear-gradient(90deg, rgba(176,175,127,0.5) 0%, rgba(126,90,58,0.5) 100%);
+                    .currentHealthRed{
+                        border-radius: 10px 0 0 10px;
+                    }
+                    .hp_bar {
+                        height: 20px;
+                        align-self: flex-end;
+                        .health{
+                            border-radius: 10px 0 0 10px;
+                        }
+                    }
+                }
+                .row {
+                    flex-direction: row-reverse;
+                    .grenades {
+                        padding-left: 5px;
+                    }
+                    .username {
+                        flex-direction: row-reverse;
+                        .roundkills-container {
+                            left: 115px;
+                        }
+                    }
+                    .secondary_weapon {
+                        padding-left: 10px;
+                    }
+                    .armor_and_utility {
+                        justify-content: flex-end;
+                    }
+                    .money {
+                        margin-left: auto;
+                        justify-content: flex-end;
+                    }
+                    .weapon {
+                        transform: scaleX(-1);
+                    }
+                }
+                .avatar {
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+}
+.left{
+    .health{
+        margin: 0 -8px 0 0 !important;
+        width: calc(100% + 8px) !important;
+        border-radius: 0 10px 10px 0 !important;
+    }
+}
 .al_Player{
     position: fixed;
     right: 10px;
@@ -415,6 +451,12 @@
             font-family: "Gill Sans", sans-serif;
             font-weight: 900 !important;
         }
+        .CT{
+            color:#9348ad;
+        }
+        .T{
+            color:rgba(254, 85, 16, 0.8)
+        }
     }
     &.hide {
         opacity: 0;
@@ -422,7 +464,7 @@
 }
 
 .title_container {
-    color: #3c3c3c;
+    color: #fff;
     text-align: center;
     height:20px;
     font-size:14px;
@@ -474,7 +516,6 @@
                 }
                 .username{
                     display: block;
-                    position: relative;
                     z-index: 1;
                     color:#fff;
                     overflow: hidden;
@@ -485,7 +526,7 @@
 
             .player_data_second_block {
                 padding: 5px 10px;
-                width: 100px;
+                width: 90px;
                 border-radius: 10px 10px 0 0;
                 display: flex;
                 flex-direction: column;

@@ -14,19 +14,23 @@ export default class Bomb extends React.Component<IProps> {
     if(!player) return null;
     if(type === "defusing"){
       return <>
-        <I.Defuse height={22} width={22} fill="var(--color-new-ct)" />
-        <div className={'CT'}>{player.name} is defusing the bomb</div>
+        <div className={'CT defusing-block'}>
+          <I.Defuse height={22} width={22} fill="var(--color-new-ct)" />
+          <p>{player.name} is defusing the bomb</p>
+        </div>
       </>;
     }
     return <>
-      <I.SmallBomb height={22} fill="var(--color-new-t)"/>
-      <div className={'T'}>{player.name} is planting the bomb</div>
+      <div className={'T planting-block'}>
+        <I.SmallBomb height={22} fill="var(--color-new-t)"/>
+        {player.name} is planting the bomb
+      </div>
     </>;
   }
   render() {
     const { side, timer } = this.props;
     return (
-      <div className={`defuse_plant_container ${side} ${timer && timer.active ? 'show' :'hide'}`}>
+      <div className={`defuse_plant_container ${side}  ${timer && timer.active ? 'show' :'hide'}`}>
         {
           timer ?
           <div className={`defuse_plant_caption`}>
