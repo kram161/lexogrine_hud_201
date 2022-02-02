@@ -40,6 +40,12 @@
                     position: relative;
                     .username{
                         text-align: center;
+                        width: 100%;
+                        div{
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            width: 100%;
+                        }
                     }
                     span{
                         font-size: 14px;
@@ -136,25 +142,24 @@
         .dead-stats {
             position: relative;
             height: 85%;
-            width: 60px;
+            width: 50px;
             display: block;
             flex-direction: column;
             font-weight: 400;
             color: white;
             .labels, .values {
                 display: flex;
+                justify-content: space-between;
                 flex-direction: row;
-                flex: 0.5;
                 .stat-label, .stat-value {
                     display: flex;
-                    flex: 0.5;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: space-between;
                 }
             }
         }
         .player_data {
-            width: 330px;
+            width: 270px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -341,7 +346,6 @@
                 .player_data_stats{
                     display: flex;
                     flex-direction: row-reverse;
-                    background: linear-gradient(90deg, rgba(176,175,127,0.5) 0%, rgba(126,90,58,0.5) 100%);
                     .currentHealthRed{
                         border-radius: 10px 0 0 10px;
                     }
@@ -439,6 +443,7 @@
             justify-content: center;
             font-size:40px;
             color: white;
+            font-weight: 600;
         }
         .team_counter{
             font-family:'Montserrat', sans-serif;
@@ -482,14 +487,14 @@
         flex-direction: column;
         .player_data_inf{
             display: flex;
+            justify-content: space-between;
             height: 80px;
             .player_data_first_block{
                 display: flex;
                 flex-direction: column;
                 background: linear-gradient(90deg, rgba(241,126,17,0.5) 0%, rgba(255,86,21,0.5) 100%);
-                width: 110px;
+                width: 80px;
                 border-radius: 10px 10px 0 0;
-                margin:0 5px 0 0;
                 padding: 5px 10px;
                 .player_data_first_block_description{
                     display: flex;
@@ -518,14 +523,13 @@
                     display: block;
                     z-index: 1;
                     color:#fff;
-                    overflow: hidden;
                     height: 20px;
                     text-align: left;
                 }
             }
 
             .player_data_second_block {
-                padding: 5px 10px;
+                padding: 5px;
                 width: 90px;
                 border-radius: 10px 10px 0 0;
                 display: flex;
@@ -564,11 +568,11 @@
 
             .player_data_third_block{
                 position: relative;
-                width: 60px;
+                width: 50px;
                 border-radius: 10px 10px 0 0;
                 display: flex;
                 flex-direction: column;
-                padding: 5px 10px;
+                padding: 5px 5px;
                 background: linear-gradient(90deg, rgba(207,205,35,0.5) 0%, rgba(219,184,4,0.5) 100%);
                 .money{
                     margin:0 auto;
@@ -625,13 +629,67 @@
                 }
                 .player_data_third_block{
                     background: linear-gradient(90deg, rgba(43,84,148,0.5) 0%, rgba(49,75,160,0.5) 100%);
-                    margin:0 0 0 5px;
                 }
             }
         }
         .player_data_stats{
             width: 100%;
             background: linear-gradient(90deg, rgba(146,0,209,0.5) 0%, rgba(38,85,155,0.5) 100%);
+        }
+    }
+}
+.T{
+    .player{
+        .player_data_stats{
+            width: 100%;
+            background: linear-gradient(90deg, rgba(176,175,127,0.5) 0%, rgba(126,90,58,0.5) 100%);
+        }
+    }
+}
+.CT{
+    &.right{
+        .player{
+            .player_data{
+                .player_data_inf{
+                    .player_data_first_block{
+                        background: linear-gradient(90deg, rgba(49,75,160,0.5) 0%, rgba(43,84,148,0.5) 100%);
+                    }
+                    .player_data_second_block{
+                        background: linear-gradient(90deg, rgba(44,84,143,0.5 )0%, rgba(51,77,162,0.5) 100%);
+                    }
+                    .player_data_third_block{
+                        background: linear-gradient(90deg, rgba(98,38,188,0.5) 0%, rgba(54,73,165,0.5) 100%);
+                    }
+                }
+
+            }
+            .player_data_stats{
+                width: 100%;
+                background: linear-gradient(90deg, rgba(146,0,209,0.5) 0%, rgba(38,85,155,0.5) 100%);
+            }
+        }
+    }
+}
+.T{
+    &.left{
+        .player {
+            .player_data {
+                .player_data_inf {
+                    .player_data_first_block {
+                        background: linear-gradient(90deg, rgba(207, 205, 35, 0.5) 0%, rgba(219, 184, 4, 0.5) 100%);
+                    }
+                    .player_data_second_block {
+                        background: linear-gradient(90deg, rgba(221, 179, 9, 0.5) 0%, rgba(240, 131, 14, 0.5) 100%);
+                    }
+                    .player_data_third_block {
+                        background: linear-gradient(90deg, rgba(241, 126, 17, 0.5) 0%, rgba(255, 86, 21, 0.5) 100%);
+                    }
+                }
+                .player_data_stats{
+                    width: 100%;
+                    background: linear-gradient(90deg, rgba(126,90,58,0.5) 0%, rgba(176,175,127,0.5) 100%);
+                }
+            }
         }
     }
 }
