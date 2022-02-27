@@ -45,11 +45,20 @@
 			position: absolute;
 			top:50%;
 			transform: translateY(-50%);
+			left: -15px;
 		}
 	}
 	.matchbar_left{
 		display: flex;
 		flex-direction: row-reverse;
+		.score{
+			background: none;
+			position: absolute;
+			top:50%;
+			transform: translateY(-50%);
+			right: -15px;
+			left:auto;
+		}
 	}
 	#timer {
 		display: flex;
@@ -65,6 +74,11 @@
         &.no-bo {
             height: auto;
         }
+		&.bomb-planted{
+			background: #5F5E5A;
+			opacity: 0.5;
+			border: 1px solid #5F5E5A;
+		}
 	}
 	#bomb_container {
 		display: flex;
@@ -96,8 +110,7 @@
 				position: absolute;
 				left: 50%;
 				transform: translateX(-50%);
-				top: 6px;
-				max-height: 80%;
+				max-height: 60%;
 				max-width: 80%;
             }
             &.hide {
@@ -118,6 +131,14 @@
         &.hide {
             display: none;
         }
+		&.bomb-planted-timer{
+			position: absolute;
+			font-size: 30px;
+			color: #fff;
+			top:75%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
 	}
 	#round_now {
 		display: flex;
@@ -159,6 +180,7 @@
             .logo {
                 justify-content: flex-end;
             }
+
         }
         &.right {
             justify-content: center;
@@ -169,11 +191,12 @@
             .logo {
                 justify-content: flex-start;
             }
+
         }
 	}
 	.team-name {
 		display: flex;
-		width: 360px;
+		width: 300px;
 		align-items: center;
 		justify-content: center;
 		font-weight: 600;
@@ -239,10 +262,30 @@
         animation-fill-mode: forwards;
     }
     &.right {
-        left: calc(50% + 90px);
+		.defuse_plant_caption{
+			.CT{
+				position: absolute;
+				left: calc(50% + 50px);
+			}
+			.T{
+				position: absolute;
+				left: calc(50% + 90px);
+			}
+		}
     }
     &.left {
-        right: calc(50% + 90px);
+		.defuse_plant_caption {
+			.CT{
+				top: 85px;
+				position: absolute;
+				right: calc(50% + 50px);
+			}
+			.T{
+				top: 85px;
+				position: absolute;
+				right: calc(50% + 90px);
+			}
+		}
     }
 }
 
@@ -250,7 +293,7 @@
 	position: fixed;
 	display: flex;
 	opacity: 1;
-	width: 360px;
+	width: auto;
 	height: 49px;
 	top: 85px;
 	align-items: center;
@@ -263,6 +306,7 @@
 		position: absolute;
 		width: 0%;
 		border-radius: 10px;
+		opacity: 0.2;
 	}
 	.defuse_plant_caption {
 		z-index: 1;
@@ -281,18 +325,49 @@
 			}
 		}
     }
-    &.right {
-        left: calc(50% + 90px);
-        .defuse_plant_bar {
-            left: 0;
-        }
-    }
-    &.left {
-        right: calc(50% + 50px);
-        .defuse_plant_bar {
-            right: 0;
-        }
-    }
+	&.right {
+		left: calc(50% + 50px);
+		.defuse_plant_caption{
+			.CT{
+				position: relative;
+				left: 0;
+				.defuse_plant_bar{
+					top:0;
+					left:0;
+				}
+			}
+			.T{
+				position: relative;
+				left:40px;
+				.defuse_plant_bar{
+					top:0;
+					left:0;
+				}
+			}
+		}
+	}
+	&.left {
+		right: calc(50% + 90px);
+		.defuse_plant_caption {
+			.CT{
+				position: relative;
+				right: -40px;
+				.defuse_plant_bar{
+					top:0;
+					right: 0;
+				}
+			}
+			.T{
+				position: relative;
+				right: 0;
+				.defuse_plant_bar{
+					top:0;
+					right: 0;
+
+				}
+			}
+		}
+	}
     &.hide {
         opacity: 0;
     }
@@ -300,7 +375,7 @@
 .left{
 	.defuse_plant_caption{
 		.defusing-block,.planting-block{
-			padding: 15px 2px 15px 0;
+			padding: 15px 22px 15px 20px;
 			border-radius: 10px 0 0 10px !important;
 		}
 	}
@@ -308,7 +383,7 @@
 .right{
 	.defuse_plant_caption{
 		.defusing-block,.planting-block{
-			padding: 15px 0 15px 2px;
+			padding: 15px 20px 15px 22px;
 			border-radius: 0 10px 10px 0 !important;
 		}
 	}
@@ -316,9 +391,12 @@
 .defusing-block,.planting-block{
 	display: flex;
 	justify-content: center;
-	width: 360px;
+	width: auto;
 	border-radius: 10px;
 	font-size: 20px;
+	p{
+		width: 100%;
+	}
 }
 .defusing-block{
 	background: linear-gradient(90deg, rgba(153,122,190,0.8) 0%, rgba(147,72,173,1) 100%) !important;

@@ -35,14 +35,14 @@ export default class PlayerBox extends React.Component<IProps> {
           <div className="player_data_inf">
             <div className="player_data_first_block">
               <div className="player_data_first_block_description">
-                {isLeft ? <span>{player.observer_slot}</span> : null}
-                {!isLeft ? <span>{player.observer_slot}</span> : null}
+                {player.state.round_kills ? <div className="roundkills-container">{player.state.round_kills}</div> : null}
                 <Avatar steamid={player.steamid} height={57} width={57} showSkull={false}/>
                 <div className="flag">{countryName ? <img src={`${apiUrl}files/img/flags/${countryName.replace(/ /g, "-")}.png`} alt={countryName} /> : ''}</div>
               </div>
               <div className="username">
                 <div>{player.name}</div>
               </div>
+
             </div>
             <div className="player_data_second_block">
               <div className="player_data_second_block_weapon">

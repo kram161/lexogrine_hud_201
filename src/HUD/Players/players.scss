@@ -234,15 +234,6 @@
                         font-size: 18px;
                         text-overflow: ellipsis;
                         white-space: nowrap;
-                        .roundkills-container {
-                            position: absolute;
-                            background-image: url('./../../assets/images/icon_skull_default.svg');
-                            background-repeat: no-repeat;
-                            background-size: 10px;
-                            background-position: left 2px;
-                            padding-left: 16px;
-                            font-size: 13px;
-                        }
                         div span {
                             opacity: 0.6;
                             font-size:15px;
@@ -399,7 +390,6 @@
 .al_Player{
     position: fixed;
     right: 10px;
-    top: 10px;
     .T{
         background: linear-gradient(90deg, rgba(206,206,30,0.5) 0%, rgba(254,85,16,0.5) 100%);
     }
@@ -412,7 +402,7 @@
     flex-direction: column;
     width: 168px;
     border-radius: 10px;
-    height: 58px;
+    height: 48px;
     opacity: 1;
     transition: opacity 1s;
     color: #fff;
@@ -426,7 +416,7 @@
         opacity: 0.1;
         p{
             color: #000;
-            font-size: 55px;
+            font-size: 53px;
             font-family: "Gill Sans", sans-serif;
             font-weight: 900 !important;
         }
@@ -495,17 +485,31 @@
                 background: linear-gradient(90deg, rgba(241,126,17,0.5) 0%, rgba(255,86,21,0.5) 100%);
                 width: 80px;
                 border-radius: 10px 10px 0 0;
-                padding: 5px 10px;
+                padding: 5px 10px 0 10px;
                 .player_data_first_block_description{
                     display: flex;
                     justify-content: center;
+                    flex: 1;
+                    height: 100%;
+                    .roundkills-container {
+                        display: inline-block;
+                        height: 15px;
+                        background: rgba(112, 112, 112, 0.5);
+                        color: #ffffff;
+                        line-height: normal;
+                        padding: 0 5px 3px 5px;
+                        margin:0 2px 0 0;
+                        font-size: 15px;
+                        border-radius: 50%;
+                    }
                     .avatar{
-                        margin:auto 4px 0 0;
+                        margin:0 4px 0 0;
                         z-index: 1;
+                        height: 100%;
                         img{
                             margin:0;
-                            height: 46px;
-                            width: 38px;
+                            height: 100%;
+                            width: 40px;
                         }
                     }
                     .flag{
@@ -605,6 +609,9 @@
                 .player_data_first_block_description{
                     display: flex;
                     flex-direction: row-reverse;
+                    .roundkills-container{
+                        margin: 0 0 0 2px;
+                    }
                     .avatar{
                         margin: auto 0 0 4px;
                     }

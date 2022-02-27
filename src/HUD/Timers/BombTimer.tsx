@@ -28,7 +28,6 @@ export default class Bomb extends React.Component<any, { height: number; show: b
           return bomb.go(data.bomb.countdown);
         }
         if (data.bomb.state !== "defusing") {
-          this.hide();
         }
       } else {
         this.hide();

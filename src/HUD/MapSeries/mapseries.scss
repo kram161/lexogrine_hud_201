@@ -117,15 +117,16 @@
 	left: 50%;
 	transform: translateX(-50%);
 	top: 150px;
-	background-color: var(--sub-panel-color);
 	width: 600px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100px;
+	height: 70px;
 	font-size: 35px;
 	transition: opacity 1.5s;
 	opacity: 0;
+	color:#fff;
+	border-radius: 10px;
 }
 #pause {
 	text-transform: uppercase;
@@ -148,8 +149,8 @@
 	opacity: 1;
 }
 #timeout.t {
-	color: rgba(255,86,19,1);
+	background: linear-gradient(90deg, rgba(206,206,30,0.5) 0%, rgba(254,85,16,0.5) 100%);
 }
 #timeout.ct {
-	color: rgba(149,0,214,1);
+	background: linear-gradient(90deg, rgba(200, 149, 229) 0%, rgb(139,95,148,1) 100%);
 }
